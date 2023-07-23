@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Stockez vos propres coupons pour les sites Webde vos choix. Aucune offre externe n'est utilisée, juste vos codes promo que vous avez enregistré. Une notification apparaît sur les sites indiqués pour vous rappeler que vous avez un coupon à utiliser (par exemple un remboursement, un code-cadeau reçu en newsletter, …)."
+    "message": "Stockez vos propres coupons pour les sites Web de vos choix. Vous recevrez une notification sur les sites indiqués pour vous rappeler que vous avez un coupon à utiliser (par exemple un remboursement, un code-cadeau reçu en newsletter, …)."
   },
   "intro":{
     "message": "Cette extension vous permet d'enregistrer des codes de réduction pour un site Web. Une icône clignotante apparaîtra alors pour vous signaler que vous avez un coupon pour le site en question."

@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "browser_specific_settings": {
     "gecko": {
-      "id": "contact@kodono.info",
+      "id": "coupons_notifier@kodono.info",
       "strict_min_version": "110.0"
     }
   },

@@ -1,6 +1,6 @@
 {
   "extensionDescription": {
-    "message": "Store your own coupons/voucher codes for websites. No external offers are used, just your promotional codes that you have registered. A notification appears on the sites to remind you that you have a code to use (for example a refund, a gift code received in a newsletter, etc.)."
+    "message": "Store your own coupons/voucher codes for websites. No external offers are used. A notification appears on the sites to remind you that you have a code to use (for example a refund, a gift code received in a newsletter, etc.)."
   },
   "intro":{
     "message": "Introduction message"
