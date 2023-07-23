@@ -1,0 +1,56 @@
+{
+  "extensionDescription": {
+    "message": "Store your own coupons/voucher codes for websites. No external offers are used, just your promotional codes that you have registered. A notification appears on the sites to remind you that you have a code to use (for example a refund, a gift code received in a newsletter, etc.)."
+  },
+  "intro":{
+    "message": "Introduction message"
+  },
+  "label_list":{
+    "message": "Coupons List"
+  },
+  "btn_add":{
+    "message": "✚ Save"
+  },
+  "btn_remove":{
+    "message": "‒ Remove"
+  },
+  "error_missing_values":{
+    "message": "Both fields are required."
+  },
+  "error_missing_url":{
+    "message": "The URL field is required."
+  },
+  "confirm_add":{
+    "message": "The coupon has been saved."
+  },
+  "confirm_remove":{
+    "message": "The coupon has been removed !"
+  },
+  "btn_view":{
+    "message": "show"
+  },
+  "intro_access":{
+    "message": "It's mandatory to give access to all websites to have this addon to work:"
+  },
+  "request_access":{
+    "message": "Request Permissions"
+  },
+  "badge_title":{
+    "message": "Click to show the coupons"
+  },
+  "import_export_text":{
+    "message": "It's possible to export/import all coupons:"
+  },
+  "btn_export":{
+    "message": "Export"
+  },
+  "btn_import":{
+    "message": "Import"
+  },
+  "import_intro":{
+    "message": "Select the JSON that will be used to remplace the existing data:"
+  },
+  "import_confirm":{
+    "message": "The coupons have been imported. You can close this page."
+  }
+}

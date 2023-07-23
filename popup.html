@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coupon Notifier</title>
+    <style>
+      body {
+        width:500px;
+        height:485px;
+        font-size:16px;
+      }
+      body > div {
+        padding: 8px 15px;
+        margin: 5px;
+        border-radius: 10px;
+        background-color: #EEE;
+      }
+      .switch {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .switch input {
+        display: none;
+      }
+
+      .slider {
+        position: relative;
+        display: inline-block;
+        background-color: red;
+        border-radius: 34px;
+        transition: 0.4s;
+        width: 38px;
+        height: 18px;
+        margin-left:10px;
+      }
+
+      .slider:before {
+        position: absolute;
+        display: inline-block;
+        top: 2px;
+        left: 4px;
+        content: "";
+        height: 14px;
+        width: 14px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.4s;
+      }
+
+      input:checked + .slider {
+        background-color: green;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(15px);
+      }
+
+      .hide-it-show-next, .show-it-hide-next + * {
+        display: none;
+      }
+      .hide-it-show-next + * {
+        display: block;
+      }
+
+      .flex-align-column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      button {
+        cursor:pointer;
+      }
+      .btn_view {
+        background-color:#000;
+        color:#FFF;
+      }
+
+      #need_access {
+        display:none;
+        margin-bottom:5px;
+      }
+      #need_access.show {
+        display:block;
+      }
+      #need_access.show ~ div {
+        display:none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="intro" class="need_text"></div>
+    <div id="need_access">
+      <div id="intro_access" class="need_text"></div>
+      <button type="button" id="request_access" class="need_text" style="background-color:blue;color:#FFF;margin-left:20px"></button>
+    </div>
+    <div>
+      <div class="flex-align-column">
+        <label>URL</label>
+        <input id="add_url" type="text" placeholder="Ex: https://www.amazon.com" style="width:100%">
+      </div>
+      <div class="flex-align-column">
+        <label>Notes</label>
+        <textarea id="add_notes" placeholder="Ex: Code ABC123FREE (10%) valid until 24/12/2024" style="width:100%;height:100px"></textarea>
+      </div>
+      <div style="text-align:center">
+        <button type="button" id="btn_remove" style="background-color:red; color:#FFF" class="need_text"></button>
+        <button type="button" id="btn_add" style="background-color:green; color:#FFF" class="need_text"></button>
+      </div>
+    </div>
+    <div>
+      <div>
+        <span id="label_list" class="need_text"></span>
+        <span id="qty_coupons"></span>
+      </div>
+      <ul id="list_coupons">
+      </ul>
+    </div>
+    <div>
+      <div id="import_export_text" class="need_text" style="margin-bottom:5px"></div>
+      <button type="button" id="btn_export" class="need_text"></button>
+      <button type="button" id="btn_import" class="need_text"></button>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

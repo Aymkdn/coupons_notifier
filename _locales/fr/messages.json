@@ -1,0 +1,56 @@
+{
+  "extensionDescription": {
+    "message": "Stockez vos propres coupons pour les sites Webde vos choix. Aucune offre externe n'est utilisée, juste vos codes promo que vous avez enregistré. Une notification apparaît sur les sites indiqués pour vous rappeler que vous avez un coupon à utiliser (par exemple un remboursement, un code-cadeau reçu en newsletter, …)."
+  },
+  "intro":{
+    "message": "Cette extension vous permet d'enregistrer des codes de réduction pour un site Web. Une icône clignotante apparaîtra alors pour vous signaler que vous avez un coupon pour le site en question."
+  },
+  "label_list":{
+    "message": "Liste des coupons"
+  },
+  "btn_add":{
+    "message": "✚ Sauvegarder"
+  },
+  "btn_remove":{
+    "message": "‒ Supprimer"
+  },
+  "error_missing_values":{
+    "message": "Les deux champs sont obligatoires."
+  },
+  "error_missing_url":{
+    "message": "Le champs URL doit être fourni."
+  },
+  "confirm_add":{
+    "message": "Le coupon a été sauvegardé."
+  },
+  "confirm_remove":{
+    "message": "Le coupon a été supprimé !"
+  },
+  "btn_view":{
+    "message": "voir"
+  },
+  "intro_access":{
+    "message": "Il est nécessaire de donner l'accès à tous les sites pour que cette extension fonctionne :"
+  },
+  "request_access":{
+    "message": "Demander les droits"
+  },
+  "badge_title":{
+    "message": "Cliquer pour voir les coupons"
+  },
+  "import_export_text":{
+    "message": "Il est possible d'exporter/importer les coupons :"
+  },
+  "btn_export":{
+    "message": "Exporter"
+  },
+  "btn_import":{
+    "message": "Importer"
+  },
+  "import_intro":{
+    "message": "Sélectionnez le fichier JSON qui sera utilisé pour remplacer les données existantes :"
+  },
+  "import_confirm":{
+    "message": "Les coupons ont été importés. Vous pouvez fermer cette page."
+  }
+}
