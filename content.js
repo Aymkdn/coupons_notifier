@@ -16,20 +16,22 @@ chrome.storage.local.get("coupons")
     // if we have coupons associated to the current page
     if (notes.length>0) {
       // inject script
-      var s = document.createElement('script');
+      let s = document.createElement('script');
+      s.id = "coupon_notifier_addon";
       s.src = chrome.runtime.getURL('injected.js');
       s.onload = function () {
         this.remove();
       };
-      (document.head || document.documentElement).appendChild(s);
+      let area = (document.head || document.documentElement);
+      area.appendChild(s);
 
       // save the icon in the page to use it
-      var i = document.createElement('img');
+      let i = document.createElement('img');
       i.src = chrome.runtime.getURL("logo.png");
       i.id  = "coupon_notifier_icon";
       i.width = "44";
       i.height = "44";
-      (document.head || document.documentElement).appendChild(i);
+      area.appendChild(i);
 
       // send the notes to the injected.js
       window.postMessage(`coupon_notifier_badge_details:${notes.join("#@#")}`, "*");

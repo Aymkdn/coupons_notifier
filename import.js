@@ -3,7 +3,7 @@ const needTextElements = document.querySelectorAll(".need_text");
 for (let i=0; i<needTextElements.length; i++) {
   if (needTextElements[i].id) {
     let txt = browser.i18n.getMessage(needTextElements[i].id);
-    needTextElements[i].innerHTML = txt;
+    needTextElements[i].textContent = txt;
   }
 }
 

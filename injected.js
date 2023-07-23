@@ -6,8 +6,8 @@ document.body.insertAdjacentHTML('beforeend', `<div id="coupon_notifier_badge" t
   #coupon_notifier_badge {
     width: 64px;
     height: 64px;
-    background-color: white;
     display:none;
+    background-color: white;
     align-items:center;
     justify-content:center;
     position: fixed;
@@ -105,6 +105,12 @@ window.addEventListener('click', function(event) {
   }
 });
 
+function sanitize(str) {
+  const decoder = document.createElement('div')
+  decoder.innerHTML = str;
+  return decoder.textContent;
+}
+
 // listen to the messages sent from content.js
 window.addEventListener("message", function(event) {
   if (event.data) {
@@ -112,12 +118,10 @@ window.addEventListener("message", function(event) {
       let notes = event.data.slice("coupon_notifier_badge_details:".length).split("#@#");
       // show the badge
       badge.style.display = "flex";
-      badgeDetails.querySelector('div').innerHTML = notes.join("<hr>");
+      badgeDetails.querySelector('div').innerHTML = notes.map(note => sanitize(note)).join("<hr>");
     }
     else if (event.data.startsWith('coupon_notifier_badge_translation_title:')) {
       badge.setAttribute("title", event.data.slice("coupon_notifier_badge_translation_title:".length));
     }
   }
 });
-
-// TODO: show a badge number to indicate how many notes for the current page

@@ -16,7 +16,7 @@ const needTextElements = document.querySelectorAll(".need_text");
 for (let i=0; i<needTextElements.length; i++) {
   if (needTextElements[i].id) {
     let txt = browser.i18n.getMessage(needTextElements[i].id);
-    needTextElements[i].innerHTML = txt;
+    needTextElements[i].textContent = txt;
   }
 }
 
@@ -145,10 +145,13 @@ function getCoupons () {
 function updateListOfCoupons () {
   getCoupons()
   .then(coupons => {
-    qtyCouponsElem.innerHTML = `(${coupons.length})`;
+    qtyCouponsElem.textContent = `(${coupons.length})`;
     // sort by URL
     coupons.sort((a,b) => a.url.localeCompare(b.url, 'en', { sensitivity: 'base' }));
-    listCouponsElem.innerHTML = coupons.map(coupon => {
+    listCouponsElem.innerHTML = coupons.filter(coupon => {
+      // make sure the coupon URL starts with "https://" or "http://" and that it doesn't contain a "<"
+      return (coupon.url.startsWith("https://") || coupon.url.startsWith("http://")) && !coupon.url.includes("<");
+    }).map(coupon => {
       return `<li>${coupon.url} <button class="btn_view" type="button" data-url="${coupon.url}">${browser.i18n.getMessage("btn_view")}</button></li>`;
     }).join("");
 
