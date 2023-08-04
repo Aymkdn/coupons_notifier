@@ -35,7 +35,7 @@ document.body.insertAdjacentHTML('beforeend', `<div id="coupon_notifier_badge" t
   #coupon_notifier_badge_details {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 9999;
     left: 0;
     top: 0;
     width: 100%;
@@ -55,6 +55,21 @@ document.body.insertAdjacentHTML('beforeend', `<div id="coupon_notifier_badge" t
     transform: translate(-50%, -50%);
   }
   </style>`);
+
+
+function sanitize(str) {
+  const decoder = document.createElement('div')
+  decoder.innerHTML = str;
+  return decoder.textContent;
+}
+
+function linkify (str) {
+  // eslint-disable-next-line
+  let urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/\(\)%?=~_|!:,.;]*[-A-Z0-9+&@#\/\(\)%=~_|])/ig;
+  return (str||"").replace(/</g, "&nbsp;").replace(urlRegex, function(url) {
+    return '<a href="' + url + '" target="_blank">' + url + '</a>';
+  })
+}
 
 let icon = document.getElementById("coupon_notifier_icon");
 let badge = document.getElementById("coupon_notifier_badge");
@@ -102,14 +117,12 @@ badge.onclick = function() {
 window.addEventListener('click', function(event) {
   if (event.target === badgeDetails) {
     badgeDetails.style.display = 'none';
+  } else if (isMoving) {
+    document.removeEventListener('mousemove', onMouseMove);
+    badge.onmouseup = null;
+    isMoving = false;
   }
 });
-
-function sanitize(str) {
-  const decoder = document.createElement('div')
-  decoder.innerHTML = str;
-  return decoder.textContent;
-}
 
 // listen to the messages sent from content.js
 window.addEventListener("message", function(event) {
@@ -118,7 +131,7 @@ window.addEventListener("message", function(event) {
       let notes = event.data.slice("coupon_notifier_badge_details:".length).split("#@#");
       // show the badge
       badge.style.display = "flex";
-      badgeDetails.querySelector('div').innerHTML = notes.map(note => sanitize(note)).join("<hr>");
+      badgeDetails.querySelector('div').innerHTML = notes.map(note => linkify(sanitize(note))).join("<hr>");
     }
     else if (event.data.startsWith('coupon_notifier_badge_translation_title:')) {
       badge.setAttribute("title", event.data.slice("coupon_notifier_badge_translation_title:".length));
