@@ -9,7 +9,7 @@ chrome.storage.local.get("coupons")
     let uri = window.location.href.toLowerCase();
     data.coupons.forEach(coupon => {
       if (uri===coupon.url || uri.startsWith(coupon.url+"/")) {
-        notes.push(coupon.notes.replace(/\n/g, "<br>"));
+        notes.push(coupon.notes.replaceAll(/\n/g, "<br>"));
       }
     })
 

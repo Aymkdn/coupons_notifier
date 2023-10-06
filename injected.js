@@ -53,6 +53,11 @@ document.body.insertAdjacentHTML('beforeend', `<div id="coupon_notifier_badge" t
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    white-space:pre-line;
+  }
+  #coupon_notifier_badge_details a {
+    color:blue !important;
+    text-decoration:underline !important;
   }
   </style>`);
 
@@ -128,7 +133,7 @@ window.addEventListener('click', function(event) {
 window.addEventListener("message", function(event) {
   if (event.data) {
     if (event.data.startsWith("coupon_notifier_badge_details:")) {
-      let notes = event.data.slice("coupon_notifier_badge_details:".length).split("#@#");
+      let notes = event.data.slice("coupon_notifier_badge_details:".length).replaceAll("<br>", "\n").split("#@#");
       // show the badge
       badge.style.display = "flex";
       badgeDetails.querySelector('div').innerHTML = notes.map(note => linkify(sanitize(note))).join("<hr>");
